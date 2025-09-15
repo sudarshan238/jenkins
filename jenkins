@@ -4,23 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Teju-Aws/Terraform.git'
+                // Clone the repository from GitHub
+                git branch: 'main', url: 'https://github.com/sudarshan238/jenkins.git'
             }
         }
 
         stage('Terraform Init') {
             steps {
-                dir('Day-2-sample-code') {
-                    sh 'terraform init'
-                }
+                // Initialize Terraform
+                sh 'terraform init'
             }
         }
 
         stage('Terraform Plan') {
             steps {
-                dir('Day-2-sample-code') {
-                    sh 'terraform plan'
-                }
+                // Show the Terraform execution plan
+                sh 'terraform plan'
             }
         }
     }
